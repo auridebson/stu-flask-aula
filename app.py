@@ -2,17 +2,35 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET","POST"])
 def index():
+    if request.method == "POST":
+        nome = request.form.get("nome")
+        peso = request.form.get("peso")
+        altura = request.form.get("altura")
+
+        if int(peso) > 65:
+            return f"""
+            <script>
+                alert("{nome}, você está bonitão... se mantenha assim.");
+                window.location.href = "/"
+            </script>
+            """
+        elif int(peso) < 65:
+            return f"""
+            <script>
+                alert("{nome}, você está raquítico - coma mais.");
+                window.location.href = "/"
+            </script>
+            """
+
     return render_template("index.html")
 
-@app.route("/caracteristica", methods=["POST"])
+@app.route("/", methods=["POST"])
 def caracteristica():
     nome = request.form.get("nome")
     idade = request.form.get("idade")
     return f"<strong>Nome:</strong> {nome} - <strong>Idade:</strong> {idade}"
-
-
 
 
 
