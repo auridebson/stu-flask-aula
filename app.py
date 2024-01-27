@@ -6,6 +6,16 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/caracteristica", methods=["POST"])
+def caracteristica():
+    nome = request.form.get("nome")
+    idade = request.form.get("idade")
+    return f"<strong>Nome:</strong> {nome} - <strong>Idade:</strong> {idade}"
+
+
+
+
+
 @app.route("/info")
 def info():
     nome = request.args.get("nome","Anonimo")
