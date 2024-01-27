@@ -9,14 +9,26 @@ def index():
         peso = request.form.get("peso")
         altura = request.form.get("altura")
 
-        if int(peso) > 65:
+        # < 16,9 - Muito abaixo do peso
+        # 17 a 18,4 - abaixo do peso
+
+        # 18,5 a 24,9 - peso normal
+        # 25 a 29,9 - acima do peso
+
+        # 30 a 34,9 - obesidade grau 1
+        # 35 a 40 - obesidade grau 2
+        # > 40 - obesidade grau 3
+
+        # IMC = peso/(altura x altura)
+
+        if float(peso/altura*altura) > 20:
             return f"""
             <script>
                 alert("{nome}, você está bonitão... se mantenha assim.");
                 window.location.href = "/"
             </script>
             """
-        elif int(peso) < 65:
+        elif float(peso/altura*altura) < 20:
             return f"""
             <script>
                 alert("{nome}, você está raquítico - coma mais.");
