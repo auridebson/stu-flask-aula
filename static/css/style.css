@@ -1,0 +1,16 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, p {
+    margin: 5px;
+    padding: 10px;
+}
+
+p {
+    text-align: justify;
+    width: 80%;
+}
