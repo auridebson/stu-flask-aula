@@ -9,23 +9,32 @@
 </head>
 <body>
 
-    <h1 class="container-cabecalho">Aula de Flask</h1>
+    <h1 class="container-cabecalho">Formulário em Flask</h1>
 
     <hr>
 
-    <p>Flask é um framework web para Python que permite criar aplicativos web 
-        de forma rápida e simples. Ele é conhecido por ser leve, flexível e 
-        fácil de usar, proporcionando ao desenvolvedor liberdade para escolher 
-        as ferramentas e bibliotecas que deseja usar, sem impor uma estrutura 
-        rígida.
-    </p>
+    <p>
+        <form action="/cadastrar" method="post">
+            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+            <input type="number" id="idade" name="idade" placeholder="Idade" required>
+            <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+            <input type="date" id="dataNascimento" name="dataNascimento" placeholder="Data de Nascimento" required>
 
-    <p>A principal filosofia por trás do Flask é "micro", o que significa 
-        que ele fornece apenas o essencial para começar a construir aplicativos 
-        web, deixando muitas decisões de design e escolhas de ferramentas para 
-        o desenvolvedor. Isso contrasta com outros frameworks web mais robustos, 
-        como Django, que oferecem mais funcionalidades e uma estrutura mais 
-        opinativa.
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+    
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" >
+            <input type="text" id="profissao" name="profissao" placeholder="Profissão" >
+    
+            <button type="submit">Enviar</button>
+        </form>
+    
     </p>
     
 </body>

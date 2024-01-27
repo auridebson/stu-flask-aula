@@ -12,8 +12,12 @@ def info():
     idade = request.args.get("idade","Indefinido")
     return f"nome {nome}, idade {idade}"
 
-@app.route("/info2/<nome>/<idade>")
-def info2(nome,idade):
+
+@app.route("/info2")
+@app.route("/info2/<string:nome>")
+@app.route("/info2/<int:idade>")
+@app.route("/info2/<string:nome>/<int:idade>")
+def info2(nome = "Anonimo",idade = "Indefinido"):
     return f"nome {nome}, idade {idade}"
     
 
